@@ -2,7 +2,7 @@
 "name": "Hesap Makinesi",
 "short_name": "Hesap",
 "start_url": "./index.html",
-"display": "bağımsız",
+"display": "fullscreen",
 "background_color": "#000000",
 "theme_color": "#000000",
 "ikonlar": [
