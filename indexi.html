@@ -1,43 +1,44 @@
-<! DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
-<kafa>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link rel="manifest" href="manifest.json">
-<link rel="stylesheet" href="style.css">
-
-<title>Hesap Makinesi</title>
-</kafa>
-
-<beden>
-
-<div class="hesaplayıcı">
-<input type="text" id="screen" devre dışı bırakıldı>
-
-<div class="buttons">
-<button onclick="add('7')">7</button>
-<button onclick="add('8')">8</button>
-<button onclick="add('9')">9</button>
-<button onclick="add('/')">÷</button>
-
-<button onclick="add('4')">4</button>
-<button onclick="add('5')">5</button>
-<button onclick="add('6')">6</button>
-<button onclick="add('*')">×</button>
-
-<button onclick="add('1')">1</button>
-<button onclick="add('2')">2</button>
-<button onclick="add('3')">3</button>
-<button onclick="add('-')">−</button>
-
-<button onclick="add('0')">0</button>
-<button onclick="calculate()">=</button>
-<button onclick="clearScreen()">C</button>
-<button onclick="add('+')">+</button>
-</div>
-</div>
-
-<script src="script.js"></script>
-</vücut>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borsa Hesap Makinesi</title>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background-color: #121212; }
+        .calc { background: #1e1e1e; padding: 20px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); width: 300px; }
+        #display { width: 100%; height: 60px; font-size: 30px; text-align: right; margin-bottom: 20px; background: #2d2d2d; color: #03dac6; border: none; border-radius: 10px; padding: 10px; box-sizing: border-box; }
+        .buttons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+        button { padding: 20px; font-size: 18px; border: none; border-radius: 8px; cursor: pointer; background: #333; color: white; }
+        button:active { transform: scale(0.95); }
+        .op { background: #ff9800; }
+        .eq { background: #03dac6; grid-column: span 2; color: black; }
+        .clear { background: #f44336; grid-column: span 2; }
+    </style>
+</head>
+<body>
+    <div class="calc">
+        <input type="text" id="display" disabled>
+        <div class="buttons">
+            <button class="clear" onclick="clr()">Temizle</button>
+            <button class="op" onclick="del()">DEL</button>
+            <button class="op" onclick="ins('/')">/</button>
+            <button onclick="ins('7')">7</button><button onclick="ins('8')">8</button><button onclick="ins('9')">9</button>
+            <button class="op" onclick="ins('*')">*</button>
+            <button onclick="ins('4')">4</button><button onclick="ins('5')">5</button><button onclick="ins('6')">6</button>
+            <button class="op" onclick="ins('-')">-</button>
+            <button onclick="ins('1')">1</button><button onclick="ins('2')">2</button><button onclick="ins('3')">3</button>
+            <button class="op" onclick="ins('+')">+</button>
+            <button onclick="ins('0')">0</button><button onclick="ins('.')">.</button>
+            <button class="eq" onclick="calc()">=</button>
+        </div>
+    </div>
+    <script>
+        let d = document.getElementById('display');
+        function ins(v) { d.value += v; }
+        function clr() { d.value = ''; }
+        function del() { d.value = d.value.slice(0, -1); }
+        function calc() { try { d.value = eval(d.value); } catch { d.value = 'Hata'; } }
+    </script>
+</body>
 </html>
