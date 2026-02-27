@@ -1,0 +1,32 @@
+gövde {
+Fark: 0;
+Arka plan: #000;
+Display: Flex;
+Justify-content: orta;
+Hiza-öğeler: orta;
+yükseklik: 100vh;
+font-familyası: Arial;
+}
+
+.hesap makinesi {
+genişlik: 300px;
+}
+
+#screen {
+genişlik: %100;
+yükseklik: 60px;
+font boyutu: 28px;
+metin hizalama: sağ;
+kenar-alt: 10px;
+}
+
+.button {
+Display: Grid;
+ızgara-şablon-sütunlar: repeat(4, 1fr);
+boşluk: 8px;
+}
+
+düğme {
+yükseklik: 60px;
+font boyutu: 20px;
+}
